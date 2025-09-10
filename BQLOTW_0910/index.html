@@ -3,16 +3,48 @@
 
 <head>
     <title>Git Basic Commands</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 50px;
+            padding-top: 0;
+        }
+        .button { 
+            margin: 10px;
+            color: darkblue;
+            text-decoration: none;
+            font-weight: bold;
+            background: linear-gradient(white, lightblue);
+            padding: 5px;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 50px;
+            border: solid darkblue 1px;
+        }
+        .button:hover {
+            background: linear-gradient(lightblue, white);
+            color: blue;
+        }
+        div, iframe {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        iframe {
+            height: 600px;
+        }
+    </style>
+
 </head>
 
 <body>
     <div>
-        <a href="get-started.html" target="frame-body">Get started</a>
-        <a href="commit-push.html" target="frame-body">First commit & push</a>
-        <a href="branches.html" target="frame-body">Branches</a>
+        <a class="button" href="get-started.html" target="frame-body">Get started</a>
+        <a class="button" href="commit-push.html" target="frame-body">First commit & push</a>
+        <a class="button" href="branches.html" target="frame-body">Branches</a>
     </div>
     <iframe name="frame-body" src="body.html">
-        Your browser does not support iframes.
+        
     </iframe>
     <div>
         <p>© 2025 by Robert. All rights reserved.</p>
