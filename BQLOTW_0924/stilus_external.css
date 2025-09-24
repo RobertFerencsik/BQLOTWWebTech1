@@ -1,0 +1,14 @@
+        div {
+            width: 80px; 
+            height: 40px; 
+            background-color: rgb(216, 162, 223); 
+            margin: 0 auto; 
+            border: solid 1px rgb(131, 10, 131); 
+            border-radius: 10px; 
+            text-align: center; }
+
+        a {
+            text-decoration: none;
+            color: black; 
+            font-weight: bold;
+        }
