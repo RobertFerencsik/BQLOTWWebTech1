@@ -1,0 +1,29 @@
+th, td {
+    min-width: 50px;
+    max-width: 150px;
+}
+tr {
+    max-height: 100px;
+    min-height: 50px;
+}
+
+th {
+    background-color: grey;
+}
+
+td {
+    background-color: rgba(236, 236, 11, 0.493);
+}
+
+.bg-c-red {
+    background-color: red;
+}
+
+.bg-c-yellow {
+    background: rgb(236, 236, 11);
+}
+
+.scroll {
+
+}
+
