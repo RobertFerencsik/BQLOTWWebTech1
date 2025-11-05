@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video Lejátszó</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        display: grid;
+        grid-template-rows: 60px 1fr 90px;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        background-color: rgb(125, 173, 196);
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .video-container {
+        max-width: 800px;
+        width: 100%;
+        background-color: #000;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    video {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+        max-width: 800px;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .control-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .control-group h3 {
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+
+    footer {
+        background-color: aqua;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        font-size: 14px;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+</style>
+</head>
+<body>
+    <header>
+        HTML5 Video Lejátszó
+    </header>
+    
+    <main>
+        <div class="video-container">
+            <video id="videoPlayer" src="bqlotw_video.mp4" controls>
+                A böngésző nem támogatja a video lejátszást.
+            </video>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <h3>Vezérlés</h3>
+                <div class="button-group">
+                    <button onclick="playVideo()">    
+                        Lejátszás
+                    </button>
+                    <button onclick="pauseVideo()">
+                        Szünet
+                    </button>
+                    <button onclick="togglePlayPause()">
+                        Lejátszás/Szünet
+                    </button>
+                    <button class="stop" onclick="stopVideo()">
+                        Leállítás
+                    </button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>Hangerő</h3>
+                <div class="button-group">
+                    <button onclick="muteVideo()">
+                        Néma
+                    </button>
+                    <button onclick="quietVolume()">
+                        Halk
+                    </button>
+                    <button onclick="loudVolume()">
+                        Hangos
+                    </button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>Sebesség</h3>
+                <div class="button-group">
+                    <button   onclick="setSpeed(0.5)">
+                        Nagyon lassú
+                    </button>
+                    <button   onclick="setSpeed(0.75)">
+                        Lassú
+                    </button>
+                    <button   onclick="setSpeed(1.0)">
+                        Normál
+                    </button>
+                    <button   onclick="setSpeed(1.5)">
+                        Gyorsabb
+                    </button>
+                    <button   onclick="setSpeed(2.0)">
+                        Nagyon gyors
+                    </button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>Egyéb információk</h3>
+                <div class="button-group">
+                    <button class="info" onclick="checkFinished()">
+                        Befejeződött?
+                    </button>
+                    <button class="info" onclick="showVideoLength()">
+                        Video hossza
+                    </button>
+                    <button class="info" onclick="showCurrentPosition()">
+                        Jelenlegi pozíció
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 HTML5 Video Lejátszó - BQLOTW</p>
+    </footer>
+
+    <script>
+        const video = document.getElementById('videoPlayer');
+
+        // a.) Vezérlés: indítás, leállítás, indítás/leállítás
+        function playVideo() {
+            video.play();
+        }
+
+        function pauseVideo() {
+            video.pause();
+        }
+
+        function togglePlayPause() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        function stopVideo() {
+            video.pause();
+            video.currentTime = 0;
+        }
+
+        // b.) Hangerő: néma, halk, hangos
+        function muteVideo() {
+            video.muted = true;
+        }
+
+        function quietVolume() {
+            video.muted = false;
+            video.volume = 0.3;
+        }
+
+        function loudVolume() {
+            video.muted = false;
+            video.volume = 1.0;
+        }
+
+        // c.) Sebesség: nagyon lassú, lassú, normál, gyorsabb, nagyon gyors
+        function setSpeed(speed) {
+            video.playbackRate = speed;
+        }
+
+        // d.) Egyéb: befejeződött-e, video hossza, jelenlegi pozíció
+        function checkFinished() {
+            const isFinished = video.ended;
+            const message = isFinished 
+                ? "Igen, a video befejeződött." 
+                : "Nem, a video még nem fejeződött be.";
+            alert(message);
+        }
+
+        function showVideoLength() {
+            const duration = video.duration;
+            if (isNaN(duration)) {
+                alert("A video hossza még nem elérhető.");
+                return;
+            }
+            const minutes = Math.floor(duration / 60);
+            const seconds = Math.floor(duration % 60);
+            const message = `Video hossza: ${minutes} perc ${seconds} másodperc (${Math.floor(duration)} másodperc)`;
+            alert(message);
+        }
+
+        function showCurrentPosition() {
+            const currentTime = video.currentTime;
+            const minutes = Math.floor(currentTime / 60);
+            const seconds = Math.floor(currentTime % 60);
+            const message = `Jelenlegi pozíció: ${minutes} perc ${seconds} másodperc (${Math.floor(currentTime)} másodperc)`;
+            alert(message);
+        }
+    </script>
+</body>
+</html>

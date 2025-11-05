@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Racs</title>
+<!-- <link rel="stylesheet" href="styles.css"> -->
+<style>
+    body {
+        background-color: blueviolet;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-auto-rows: 100px;
+        gap: 20px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .wrapper  {
+        border: 2px solid red;
+        border-radius: 10px;
+        background-color:yellowgreen;
+    }
+
+    .wrapper > div {
+        border: 2p solid orangered;
+        border-radius: 10px;
+        background-color: orange;
+        padding: 1em;
+        color: blueviolet;
+    }
+
+</style> 
+</head>
+<body>
+<h1>A gap tulajdonság rács segítségével</h1>
+<p> A gap tulajdonsággal adhatjuk meg a sorok és oszlopok közötti távolságot</p>
+<p> A rácsnak a sora között 20px, az oszlopai között pedig 50 p a távolság</p>
+<div class="wrapper">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+</div>
+</body>
+</html>
