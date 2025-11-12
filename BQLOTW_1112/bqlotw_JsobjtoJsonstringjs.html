@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JS OBJ to jSON STRING</title>
+<!-- <link rel="stylesheet" href="styles.css"> -->
+<style>
+
+</style> 
+</head>
+<body>
+    <h1>JavaScript objektumból JSON string (JSON.stringify)</h1>
+    <h2>Eredmény:</h2>
+    <pre id="output"></pre>
+    <button id="showBtn">JSON string készítése</button>
+</body>
+<script>
+    const technologies = [
+        { name: "HTML5", extension: ".html" },
+        { name: "CSS3", extension: ".css" },
+        { name: "JavaScript", extension: ".js" }
+    ];
+
+    const output = document.getElementById('output');
+    document.getElementById('showBtn').addEventListener('click', () => {
+        const jsonString = JSON.stringify(technologies, null, 2);
+        output.textContent = jsonString;
+    });
+</script>
+</html>

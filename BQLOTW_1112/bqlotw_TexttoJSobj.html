@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON STRING to JS OBJ </title>
+<!-- <link rel="stylesheet" href="styles.css"> -->
+<style>
+
+</style> 
+</head>
+<body>
+    <h1>JSON String konvertálása JavaScript objektum</h1>
+    <div id="jsonRenderer"></div>
+</body>
+<script>
+    const jsonRenderer = document.getElementById('jsonRenderer');
+    const neptunkod = {"name": "Robert Ferencsik", "postcode": "3530", "city": "Miskolc", "uni": "University of Miskolc"};
+
+    for (const key in neptunkod) {
+        const p = document.createElement('p');
+        p.innerHTML = `<span><b>${key}</b></span>: ${neptunkod[key]}`;
+        jsonRenderer.appendChild(p);
+    }
+</script>
+</html>
+
