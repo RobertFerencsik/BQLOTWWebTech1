@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Tömbökön belüli tömbök ciklusa</h1>
+    <h2 id="name-age"></h2>
+    <div id="output"></div>
+
+    <script>
+        const bqlotwObj = {
+            "name": "Ferencsik Róbert",
+            "age": 22,
+            "cars": [
+                { "name": "Toyota", "models": ["CHR", "Corolla", "Proace"] },
+                { "name": "Ford", "models": ["Kuga", "Mondeo", "Mustang"] },
+                { "name": "BMW", "models": ["320", "X3", "X5"] },
+                { "name": "Fiat", "models": ["500", "Panda", "Tipo"] }
+            ]
+        };
+
+        const outputDiv = document.getElementById("output");
+
+        const nameage = document.getElementById("name-age")
+
+        nameage.textContent = `${bqlotwObj.name} (${bqlotwObj.age})`
+
+        // Bejárjuk a cars tömböt
+        for (let i = 0; i < bqlotwObj.cars.length; i++) {
+            const car = bqlotwObj.cars[i];
+
+            // Kiírjuk az autó nevét
+            const carName = document.createElement("h3");
+            carName.textContent = car.name + ":";
+            outputDiv.appendChild(carName);
+
+            // Kiírjuk a modelleket listaként
+            const ul = document.createElement("ul");
+            for (let j = 0; j < car.models.length; j++) {
+                const li = document.createElement("li");
+                li.textContent = car.models[j];
+                ul.appendChild(li);
+            }
+
+            outputDiv.appendChild(ul);
+        }
+    </script>
+</body>
+
+</html>

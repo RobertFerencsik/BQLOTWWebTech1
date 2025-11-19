@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BQLOTW Órarend</title>
+</head>
+<body>
+    <h1>Órarend megjelenítő</h1>
+    <input id="file-input" type="file" accept="application/json">
+    <p id="status">Alapértelmezett fájl betöltése…</p>
+    <div id="output">Még nincs megjelenítendő órarend.</div>
+
+    <script>
+        const statusEl = document.getElementById("status");
+        const output = document.getElementById("output");
+        const fileInput = document.getElementById("file-input");
+
+        function normalizeLessons(data) {
+            if (!data) return [];
+            if (Array.isArray(data)) return data;
+            if (data.BQLOTW_orarend?.ora) return data.BQLOTW_orarend.ora;
+            if (data.ora) return data.ora;
+            return [];
+        }
+
+        function renderLessons(lessons) {
+            if (!lessons.length) {
+                output.textContent = "Nem található megjeleníthető órarend.";
+                return;
+            }
+
+            output.innerHTML = "";
+
+            lessons.forEach(lesson => {
+                const lessonDiv = document.createElement("div");
+                lessonDiv.style.marginBottom = "16px";
+
+                Object.entries(lesson).forEach(([key, value]) => {
+                    if (typeof value === "object" && value !== null) {
+                        // Flatten idopont object
+                        Object.entries(value).forEach(([subKey, subValue]) => {
+                            const p = document.createElement("p");
+                            p.textContent = `${subKey}: ${subValue}`;
+                            lessonDiv.appendChild(p);
+                        });
+                    } else {
+                        const p = document.createElement("p");
+                        p.textContent = `${key}: ${value}`;
+                        lessonDiv.appendChild(p);
+                    }
+                });
+
+                lessonDiv.appendChild(document.createElement("hr"));
+                output.appendChild(lessonDiv);
+            });
+        }
+
+        async function loadDefaultSchedule() {
+            try {
+                const response = await fetch("BQLOTW_orarend.json");
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                statusEl.textContent = "Alapértelmezett időbeosztás betöltve.";
+                renderLessons(normalizeLessons(data));
+            } catch (error) {
+                statusEl.textContent = "Az alapértelmezett fájl nem tölthető be. Válassz egyet kézzel!";
+                output.textContent = `Hiba: ${error.message}`;
+            }
+        }
+
+        fileInput.addEventListener("change", event => {
+            const file = event.target.files?.[0];
+            if (!file) return;
+
+            statusEl.textContent = `Betöltés: ${file.name}`;
+            const reader = new FileReader();
+
+            reader.onload = e => {
+                try {
+                    const json = JSON.parse(e.target.result);
+                    const lessons = normalizeLessons(json);
+                    if (!lessons.length) throw new Error("A fájl nem tartalmaz felismerhető órarendet.");
+                    renderLessons(lessons);
+                    statusEl.textContent = `${file.name} sikeresen betöltve.`;
+                } catch (err) {
+                    statusEl.textContent = `Hiba: ${err.message}`;
+                    output.textContent = "Ellenőrizd, hogy a JSON szerkezete helyes-e.";
+                }
+            };
+
+            reader.onerror = () => {
+                statusEl.textContent = "A fájl olvasása közben hiba történt.";
+            };
+
+            reader.readAsText(file);
+        });
+
+        loadDefaultSchedule();
+    </script>
+</body>
+</html>
