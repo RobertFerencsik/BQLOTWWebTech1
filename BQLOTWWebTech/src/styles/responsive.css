@@ -1,0 +1,34 @@
+/* responsive.css - Responsive design and utilities */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .history-item,
+    .history-item.reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .history-item.reverse .history-image,
+    .history-item.reverse .history-text {
+        order: 0;
+    }
+
+    .components-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+    }
+
+    .main-nav a {
+        text-align: center;
+    }
+}
+
+/* CSS Grid with Gap */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}

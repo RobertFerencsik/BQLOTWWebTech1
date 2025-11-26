@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LSTM Neural Networks - Architecture</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="src/styles/styles.css">
     <style>
         .architecture-diagram {
             text-align: center;
@@ -43,7 +43,7 @@
                 </p>
 
                 <div class="architecture-diagram">
-                    <img src="https://via.placeholder.com/800x500/34495e/ffffff?text=LSTM+Cell+Structure"
+                    <img src="src/img/lstm-gates-states.png"
                         alt="LSTM Cell Architecture Diagram" id="lstm-diagram">
                 </div>
 
@@ -68,11 +68,13 @@
 
                     <div class="component-card" id="component-3">
                         <h2>3. Forget Gate</h2>
+                        <div class="component-text">
                         <p>
                             Determines what information should be discarded from the cell state.
                             It uses a sigmoid function to output values between 0 and 1, where 0 means
                             "completely forget" and 1 means "completely keep".
                         </p>
+                        </div>
                         <span class="formula">f_t = σ(W_f · [h_{t-1}, x_t] + b_f)</span>
                     </div>
 
@@ -162,7 +164,11 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <script src="src/script/animations.js"></script>
+    <script src="src/script/form-validation.js"></script>
+    <script src="src/script/data-loader.js"></script>
+    <script src="src/script/dom-manipulation.js"></script>
+    <script src="src/script/script.js"></script>
 </body>
 
 </html>

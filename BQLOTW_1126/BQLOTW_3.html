@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        input {
+            border: 2px solid gray;
+            padding: 5px;
+            margin: 5px;
+        }
+        input.filled {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>JQuery feladatok</h1>
+    <p>JQuery egy Javasript programozói könyvtár, amelyet John Resig kezdett el fejleszteni. <b>Kattints ide</b> és eltűnik</p>
+    <p><strong>Ez a harmadik bekezdés. <b>Kattints ide duplán</b> és eltűnik!</strong></p>
+    <p></p>
+    
+    <input type="text" name="név" placeholder="Név">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="jelszó" placeholder="Jelszó">
+    <button>Gomb</button>
+
+    <script>
+        $(document).ready(function() {
+            // A fejléc szövegről elhúzott egér információt ír ki egy ablakba
+            $('h1').on('mouseover', function() {
+                alert('Fejléc: ' + $(this).text());
+            });
+
+            // Az első bekezdésben lévő Kattints ide – elrejti az első bekezdést
+            $('p:first b').on('click', function() {
+                $('p:first').hide();
+            });
+
+            // A második bekezdésben lévő Kattints ide duplán kattintva – elrejti a 2. bekezdést
+            $('p:nth-child(3) b').on('dblclick', function() {
+                $('p:nth-child(3)').hide();
+            });
+
+            // A gomb felé állva a kurzorral – információs ablak jelenik meg benne szöveggel
+            $('button').on('mouseenter', function() {
+                alert('Ez a küldés gomb!');
+            });
+
+            // A beviteli mezőn fel/lefelé mozgatva az egerét a keret színe változik meg
+            $('input').on('mouseenter', function() {
+                $(this).css('border-color', 'blue');
+            });
+            
+            $('input').on('mouseleave', function() {
+                $(this).css('border-color', 'gray');
+            });
+
+            // A beviteli mezőn belül kattintunk (kereten belül) – kitölti egy színnel
+            $('input').on('click', function() {
+                $(this).addClass('filled');
+            });
+        });
+    </script>
+</body>
+</html>

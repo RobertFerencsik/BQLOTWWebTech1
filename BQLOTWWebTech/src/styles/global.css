@@ -1,0 +1,31 @@
+/* global.css - Global and base styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Links */
+a {
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #357abd;
+}

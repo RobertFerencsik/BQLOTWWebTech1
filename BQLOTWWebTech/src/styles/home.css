@@ -1,0 +1,126 @@
+/* home.css - Home page styles */
+
+/* Index Page */
+.home-hero {
+    min-height: calc(100vh - 116px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #4a90e2 50%, #667eea 75%, #764ba2 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow: hidden;
+}
+
+.home-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+.home-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+    pointer-events: none;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.home-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 60px 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(74, 144, 226, 0.2);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-content h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 3em;
+    font-weight: 700;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a90e2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.home-content .description {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #444;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .home-content {
+        padding: 40px 25px;
+        margin: 20px;
+    }
+
+    .home-content h1 {
+        font-size: 2em;
+    }
+
+    .home-content .description {
+        font-size: 1em;
+    }
+}

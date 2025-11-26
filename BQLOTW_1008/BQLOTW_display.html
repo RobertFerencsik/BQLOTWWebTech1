@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Tulajdonság</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #34495e;
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        /* Display: none */
+        .XY1 {
+            display: none;
+            background-color: #ffebee;
+            padding: 15px;
+            border: 2px solid #e74c3c;
+            margin-bottom: 15px;
+        }
+        
+        /* Display: inline */
+        .XY2 {
+            display: inline;
+            background-color: #cce5ff;
+            padding: 5px 10px;
+            border: 2px solid #3498db;
+            margin-right: 10px;
+        }
+        
+        /* Display: block */
+        .XY3 {
+            display: block;
+            background-color: #c8e6c9;
+            padding: 15px;
+            border: 2px solid #27ae60;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        
+        /* Display: inline-block */
+        .XY4 {
+            display: inline-block;
+            background-color: #f3e5f5;
+            padding: 15px;
+            border: 2px solid #9b59b6;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            width: 200px;
+        }
+        
+        /* Display: flex */
+        .XY5 {
+            display: flex;
+            background-color: #fff9c4;
+            padding: 15px;
+            border: 2px solid #f39c12;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+        
+        .XY5 > div {
+            background-color: #ffe082;
+            padding: 10px;
+            border: 1px solid #f39c12;
+            flex: 1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS - Display Tulajdonság Feladat</h1>
+    
+    <h2>display: none;</h2>
+    <p>Ez a bekezdés bemutató szöveg a display: none; tulajdonságról. Az XY1 osztály elemeire ezt alkalmazva az elemek teljesen eltűnnek az oldalról.</p>
+    <div class="XY1">
+        PTI Box 1 - Ez az elem nem jelenik meg az oldalon (display: none).
+    </div>
+    
+    <h2>display: inline;</h2>
+    <p>A display: inline; tulajdonság azt jelenti, hogy az elemek egymás mellett helyezkednek el, függőleges és vízszintes térközt nem vehetnek fel:</p>
+    <span class="XY2">PTI Box 1</span>
+    <span class="XY2">PTI Box 2</span>
+    <span class="XY2">PTI Box 3</span>
+    
+    <h2>display: block;</h2>
+    <p>A display: block; tulajdonság teljes szélességet foglal el és új sorba kezd:</p>
+    <div class="XY3">
+        PTI Box 1 - Ez az elem teljes szélességet foglal el (display: block).
+    </div>
+    <div class="XY3">
+        PTI Box 2 - Ez az elem szintén teljes szélességet foglal el.
+    </div>
+    <div class="XY3">
+        PTI Box 3 - Az utolsó elem is új sorban kezdődik.
+    </div>
+    
+    <h2>display: inline-block;</h2>
+    <p>Az inline-block egyesíti az inline és block tulajdonságokat - egymás mellett helyezkednek el, de méretezhetők:</p>
+    <div class="XY4">
+        PTI Box 1 - Inline-block elem
+    </div>
+    <div class="XY4">
+        PTI Box 2 - Inline-block elem
+    </div>
+    <div class="XY4">
+        PTI Box 3 - Inline-block elem
+    </div>
+    
+    <h2>display: flex;</h2>
+    <p>A display: flex; rugalmas elrendezést biztosít az elemeknek:</p>
+    <div class="XY5">
+        <div>PTI Box 1</div>
+        <div>PTI Box 2</div>
+        <div>PTI Box 3</div>
+    </div>
+</body>
+</html>
