@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSTM Neural Networks - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.85em;
+            margin-top: 3px;
+            display: none;
+        }
+
+        .form-element.error {
+            border: 2px solid red;
+        }
+
+        .form-element.error:focus {
+            outline: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+                <li><a href="architecture.html">ARCHITECTURE</a></li>
+                <li><a href="example.html">EXAMPLE</a></li>
+                <li><a href="contact.html" class="active">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Have questions about LSTM neural networks? Fill out the form below and we'll get back to you!</p>
+
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" class="form-element" required>
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" class="form-element" required>
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">Topic</label>
+                        <select id="topic" name="topic" class="form-element">
+                            <option value="">-- Select a topic --</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="LSTM Architecture">LSTM Architecture</option>
+                            <option value="Implementation Help">Implementation Help</option>
+                            <option value="Use Cases">Use Cases</option>
+                            <option value="Research Question">Research Question</option>
+                        </select>
+                        <span class="error-message" id="topic-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Contact Date</label>
+                        <input type="date" id="date" name="date" class="form-element">
+                        <span class="error-message" id="date-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="color">Theme Color Preference</label>
+                        <input type="color" id="color" name="color" value="#4a90e2" class="form-element">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Experience Level *</label>
+                        <div class="radio-group">
+                            <label for="beginner">
+                                <input type="radio" id="beginner" name="experience" value="beginner" class="form-element" required>
+                                Beginner
+                            </label>
+                            <label for="intermediate">
+                                <input type="radio" id="intermediate" name="experience" value="intermediate" class="form-element">
+                                Intermediate
+                            </label>
+                            <label for="advanced">
+                                <input type="radio" id="advanced" name="experience" value="advanced" class="form-element">
+                                Advanced
+                            </label>
+                        </div>
+                        <span class="error-message" id="experience-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Areas of Interest *</label>
+                        <div class="checkbox-group">
+                            <label for="nlp">
+                                <input type="checkbox" id="nlp" name="interests" value="nlp" class="form-element">
+                                Natural Language Processing
+                            </label>
+                            <label for="vision">
+                                <input type="checkbox" id="vision" name="interests" value="vision" class="form-element">
+                                Computer Vision
+                            </label>
+                            <label for="timeseries">
+                                <input type="checkbox" id="timeseries" name="interests" value="timeseries" class="form-element">
+                                Time Series Forecasting
+                            </label>
+                            <label for="speech">
+                                <input type="checkbox" id="speech" name="interests" value="speech" class="form-element">
+                                Speech Recognition
+                            </label>
+                            <label for="research">
+                                <input type="checkbox" id="research" name="interests" value="research" class="form-element">
+                                Research
+                            </label>
+                        </div>
+                        <span class="error-message" id="interests-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Question or Message *</label>
+                        <textarea id="message" name="message" rows="4" class="form-element" required></textarea>
+                        <span class="error-message" id="message-error"></span>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 LSTM Neural Networks Educational Website. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

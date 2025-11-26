@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSTM Neural Networks - History</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="history.html" class="active">HISTORY</a></li>
+                <li><a href="architecture.html">ARCHITECTURE</a></li>
+                <li><a href="example.html">EXAMPLE</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>From RNN to LSTM: A Journey Through Time</h1>
+            <p>The evolution of recurrent neural networks and the birth of Long Short-Term Memory</p>
+        </section>
+
+        <section class="history-content">
+            <div class="container">
+                <article class="history-item">
+                    <div class="history-image">
+                        <img src="https://via.placeholder.com/400x250/3498db/ffffff?text=Early+RNN" alt="Early RNN">
+                    </div>
+                    <div class="history-text">
+                        <h2>The Beginning: Recurrent Neural Networks (RNNs)</h2>
+                        <p>
+                            Recurrent Neural Networks were developed to handle sequential data by maintaining
+                            a hidden state that captures information about previous inputs. Introduced in the
+                            1980s, RNNs were revolutionary because they could process variable-length sequences
+                            and theoretically remember information from arbitrarily long contexts.
+                        </p>
+                        <p>
+                            However, RNNs faced a critical limitation: the vanishing gradient problem. During
+                            backpropagation through time, gradients would either explode or vanish, making it
+                            nearly impossible to learn long-term dependencies.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="history-item reverse">
+                    <div class="history-image">
+                        <img src="https://via.placeholder.com/400x250/e74c3c/ffffff?text=Vanishing+Gradient"
+                            alt="Vanishing Gradient Problem">
+                    </div>
+                    <div class="history-text">
+                        <h2>The Vanishing Gradient Problem</h2>
+                        <p>
+                            The vanishing gradient problem occurs when gradients become exponentially small
+                            as they propagate backward through many time steps. This means that early time
+                            steps receive very little gradient information, making it difficult for the network
+                            to learn relationships between distant inputs.
+                        </p>
+                        <p>
+                            Researchers tried various solutions, including gradient clipping and careful
+                            initialization, but the fundamental problem remained: standard RNNs struggled
+                            with long-term memory.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="history-item">
+                    <div class="history-image">
+                        <img src="https://via.placeholder.com/400x250/27ae60/ffffff?text=LSTM+Breakthrough"
+                            alt="LSTM Breakthrough">
+                    </div>
+                    <div class="history-text">
+                        <h2>The LSTM Breakthrough (1997)</h2>
+                        <p>
+                            In 1997, Sepp Hochreiter and Jürgen Schmidhuber introduced the Long Short-Term
+                            Memory network, which elegantly solved the vanishing gradient problem. The key
+                            innovation was the use of a cell state that runs through the entire sequence,
+                            with gates that control the flow of information.
+                        </p>
+                        <p>
+                            Unlike traditional RNNs, LSTMs can selectively remember or forget information,
+                            allowing them to maintain long-term dependencies while avoiding the problems
+                            that plagued earlier architectures.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="history-item reverse">
+                    <div class="history-image">
+                        <img src="https://via.placeholder.com/400x250/f39c12/ffffff?text=Modern+LSTM"
+                            alt="Modern LSTM Applications">
+                    </div>
+                    <div class="history-text">
+                        <h2>LSTM in the Modern Era</h2>
+                        <p>
+                            Since their introduction, LSTMs have been widely adopted in various fields.
+                            They power speech recognition systems, language translation models, and time
+                            series forecasting applications. Variations like GRU (Gated Recurrent Unit)
+                            and attention mechanisms have further extended their capabilities.
+                        </p>
+                        <p>
+                            Today, LSTMs continue to be a fundamental building block in deep learning,
+                            especially in domains where sequence modeling and temporal dependencies are crucial.
+                        </p>
+                    </div>
+                </article>
+
+                <div class="timeline">
+                    <h2>Timeline of Key Developments</h2>
+                    <table class="timeline-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Event</th>
+                                <th>Significance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1980s</td>
+                                <td>Introduction of RNNs</td>
+                                <td>First networks capable of processing sequences</td>
+                            </tr>
+                            <tr>
+                                <td>1997</td>
+                                <td>LSTM Architecture</td>
+                                <td>Solution to vanishing gradient problem</td>
+                            </tr>
+                            <tr>
+                                <td>2000s</td>
+                                <td>LSTM Improvements</td>
+                                <td>Peephole connections, forget gates refinement</td>
+                            </tr>
+                            <tr>
+                                <td>2014</td>
+                                <td>GRU Introduction</td>
+                                <td>Simplified alternative to LSTM</td>
+                            </tr>
+                            <tr>
+                                <td>2015-Now</td>
+                                <td>Attention & Transformers</td>
+                                <td>New architectures inspired by LSTM concepts</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 LSTM Neural Networks Educational Website. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

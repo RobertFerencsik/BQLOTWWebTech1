@@ -1,0 +1,83 @@
+{
+  "sequences": [
+    {
+      "id": 1,
+      "type": "Text Prediction",
+      "description": "Predicting the next word in a sentence",
+      "input": [
+        "The",
+        "cat",
+        "sat",
+        "on",
+        "the"
+      ],
+      "processing": "LSTM processes each word sequentially, maintaining context from previous words",
+      "output": "mat"
+    },
+    {
+      "id": 2,
+      "type": "Time Series",
+      "description": "Predicting stock prices",
+      "input": [
+        100,
+        105,
+        103,
+        108,
+        110
+      ],
+      "processing": "LSTM analyzes historical price patterns to forecast future values",
+      "output": 112
+    },
+    {
+      "id": 3,
+      "type": "Speech Recognition",
+      "description": "Converting audio to text",
+      "input": [
+        "chunk_1",
+        "chunk_2",
+        "chunk_3",
+        "chunk_4",
+        "chunk_5"
+      ],
+      "processing": "LSTM processes audio segments while remembering previous context",
+      "output": "Hello world"
+    }
+  ],
+  "lstmInfo": {
+    "fullName": "Long Short-Term Memory",
+    "inventors": "Sepp Hochreiter and Jürgen Schmidhuber",
+    "year": 1997,
+    "keyFeatures": [
+      "Solves vanishing gradient problem",
+      "Maintains long-term dependencies",
+      "Selective memory through gates",
+      "Effective for sequential data"
+    ]
+  },
+  "applications": [
+    {
+      "category": "Natural Language Processing",
+      "examples": [
+        "Language translation",
+        "Text generation",
+        "Sentiment analysis"
+      ]
+    },
+    {
+      "category": "Speech Recognition",
+      "examples": [
+        "Voice assistants",
+        "Transcription services",
+        "Voice commands"
+      ]
+    },
+    {
+      "category": "Time Series Forecasting",
+      "examples": [
+        "Stock prediction",
+        "Weather forecasting",
+        "Energy consumption"
+      ]
+    }
+  ]
+}

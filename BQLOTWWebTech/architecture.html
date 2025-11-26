@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSTM Neural Networks - Architecture</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .architecture-diagram {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .architecture-diagram img {
+            max-width: 100%;
+            border: 3px solid #4a90e2;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+                <li><a href="architecture.html" class="active">ARCHITECTURE</a></li>
+                <li><a href="example.html">EXAMPLE</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="architecture-section">
+            <div class="container">
+                <h1>LSTM Cell Architecture</h1>
+                <p class="intro-text">
+                    An LSTM cell is composed of several key components that work together to maintain
+                    long-term memory and selectively update information.
+                </p>
+
+                <div class="architecture-diagram">
+                    <img src="https://via.placeholder.com/800x500/34495e/ffffff?text=LSTM+Cell+Structure"
+                        alt="LSTM Cell Architecture Diagram" id="lstm-diagram">
+                </div>
+
+                <section class="components-grid">
+                    <div class="component-card" id="component-1">
+                        <h2>1. Cell State (C_t)</h2>
+                        <p>
+                            The cell state is the "highway" that runs through the entire LSTM chain.
+                            It can carry information relatively unchanged from earlier time steps,
+                            allowing the network to remember information over long sequences.
+                        </p>
+                    </div>
+
+                    <div class="component-card" id="component-2">
+                        <h2>2. Hidden State (h_t)</h2>
+                        <p>
+                            The hidden state is the output of the LSTM cell at each time step.
+                            It contains information from both the current input and previous hidden states,
+                            making it useful for predictions.
+                        </p>
+                    </div>
+
+                    <div class="component-card" id="component-3">
+                        <h2>3. Forget Gate</h2>
+                        <p>
+                            Determines what information should be discarded from the cell state.
+                            It uses a sigmoid function to output values between 0 and 1, where 0 means
+                            "completely forget" and 1 means "completely keep".
+                        </p>
+                        <span class="formula">f_t = σ(W_f · [h_{t-1}, x_t] + b_f)</span>
+                    </div>
+
+                    <div class="component-card" id="component-4">
+                        <h2>4. Input Gate</h2>
+                        <p>
+                            Decides what new information should be stored in the cell state.
+                            It consists of two parts: a sigmoid layer that decides which values to update,
+                            and a tanh layer that creates new candidate values.
+                        </p>
+                        <span class="formula">i_t = σ(W_i · [h_{t-1}, x_t] + b_i)</span>
+                        <span class="formula">C̃_t = tanh(W_C · [h_{t-1}, x_t] + b_C)</span>
+                    </div>
+
+                    <div class="component-card" id="component-5">
+                        <h2>5. Output Gate</h2>
+                        <p>
+                            Determines what parts of the cell state should be output as the hidden state.
+                            The cell state is passed through tanh, then multiplied by the output gate values.
+                        </p>
+                        <span class="formula">o_t = σ(W_o · [h_{t-1}, x_t] + b_o)</span>
+                        <span class="formula">h_t = o_t * tanh(C_t)</span>
+                    </div>
+
+                    <div class="component-card" id="component-6">
+                        <h2>6. Complete Update Process</h2>
+                        <p>
+                            The cell state is updated by first applying the forget gate, then adding
+                            new information through the input gate. This allows selective memory
+                            management throughout the sequence.
+                        </p>
+                        <span class="formula">C_t = f_t * C_{t-1} + i_t * C̃_t</span>
+                    </div>
+                </section>
+
+                <section class="architecture-table">
+                    <h2>LSTM Components Comparison</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Function</th>
+                                <th>Activation</th>
+                                <th>Output Range</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Forget Gate</td>
+                                <td>Decides what to discard</td>
+                                <td>Sigmoid</td>
+                                <td>[0, 1]</td>
+                            </tr>
+                            <tr>
+                                <td>Input Gate</td>
+                                <td>Decides what to store</td>
+                                <td>Sigmoid</td>
+                                <td>[0, 1]</td>
+                            </tr>
+                            <tr>
+                                <td>Candidate Values</td>
+                                <td>New candidate cell values</td>
+                                <td>Tanh</td>
+                                <td>[-1, 1]</td>
+                            </tr>
+                            <tr>
+                                <td>Output Gate</td>
+                                <td>Decides what to output</td>
+                                <td>Sigmoid</td>
+                                <td>[0, 1]</td>
+                            </tr>
+                            <tr>
+                                <td>Cell State</td>
+                                <td>Long-term memory</td>
+                                <td>Linear + Tanh</td>
+                                <td>ℝ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 LSTM Neural Networks Educational Website. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

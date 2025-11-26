@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSTM Neural Networks - Examples</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .video-container {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .video-controls {
+            margin-top: 20px;
+        }
+
+        .video-controls button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+                <li><a href="architecture.html">ARCHITECTURE</a></li>
+                <li><a href="example.html" class="active">EXAMPLE</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="example-section">
+            <div class="container">
+                <h1>LSTM Sequential Processing Examples</h1>
+
+                <section class="video-section">
+                    <div class="video-container">
+                        <h2>Understanding LSTM Processing</h2>
+                        <video id="lstm-video" width="100%" controls>
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-controls">
+                            <button id="play-btn">Play</button>
+                            <button id="pause-btn">Pause</button>
+                            <button id="mute-btn">Mute</button>
+                            <button id="unmute-btn">Unmute</button>
+                            <button id="fullscreen-btn">Fullscreen</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="processing-example">
+                    <h2>How LSTM Processes Sequences</h2>
+                    <div class="sequence-demo" id="sequence-container">
+                        <!-- Sequence processing visualization will be loaded here via AJAX -->
+                    </div>
+                </section>
+
+                <section class="use-cases">
+                    <h2>LSTM Applications and Use Cases</h2>
+
+                    <div class="use-case-item">
+                        <h3>1. Natural Language Processing (NLP)</h3>
+                        <p>
+                            LSTMs excel at understanding context in text. They can process sentences word
+                            by word, maintaining understanding of earlier words while interpreting new ones.
+                        </p>
+                        <ul>
+                            <li>Language translation (e.g., Google Translate)</li>
+                            <li>Text generation and chatbots</li>
+                            <li>Sentiment analysis</li>
+                            <li>Named entity recognition</li>
+                        </ul>
+                    </div>
+
+                    <div class="use-case-item">
+                        <h3>2. Speech Recognition</h3>
+                        <p>
+                            Speech is inherently sequential - sounds follow one another in time. LSTMs
+                            can model these temporal dependencies to convert audio to text.
+                        </p>
+                        <ul>
+                            <li>Voice assistants (Siri, Alexa)</li>
+                            <li>Transcription services</li>
+                            <li>Voice commands recognition</li>
+                        </ul>
+                    </div>
+
+                    <div class="use-case-item">
+                        <h3>3. Time Series Forecasting</h3>
+                        <p>
+                            LSTMs can predict future values in sequences by learning patterns from historical
+                            data. This is crucial in many business and scientific applications.
+                        </p>
+                        <ul>
+                            <li>Stock price prediction</li>
+                            <li>Weather forecasting</li>
+                            <li>Energy consumption prediction</li>
+                            <li>Sales forecasting</li>
+                        </ul>
+                    </div>
+
+                    <div class="use-case-item">
+                        <h3>4. Video Analysis</h3>
+                        <p>
+                            Videos are sequences of frames. LSTMs can understand temporal relationships
+                            between frames to recognize actions and events.
+                        </p>
+                        <ul>
+                            <li>Action recognition</li>
+                            <li>Video captioning</li>
+                            <li>Anomaly detection in surveillance</li>
+                        </ul>
+                    </div>
+
+                    <div class="use-case-item">
+                        <h3>5. Music and Audio Generation</h3>
+                        <p>
+                            LSTMs can generate new music or audio by learning patterns from existing sequences,
+                            creating coherent and musical outputs.
+                        </p>
+                        <ul>
+                            <li>Music composition</li>
+                            <li>Audio synthesis</li>
+                            <li>Voice cloning</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="processing-steps">
+                    <h2>Step-by-Step Sequential Processing</h2>
+                    <ol class="numbered-list">
+                        <li>
+                            <strong>Input Processing:</strong> Each element in the sequence (word, character,
+                            time step) is fed into the LSTM cell one at a time.
+                        </li>
+                        <li>
+                            <strong>Hidden State Update:</strong> The LSTM uses the current input and previous
+                            hidden state to compute the new hidden state.
+                        </li>
+                        <li>
+                            <strong>Cell State Update:</strong> Information is selectively added to or removed
+                            from the cell state based on the gates' decisions.
+                        </li>
+                        <li>
+                            <strong>Output Generation:</strong> The output gate determines what information
+                            from the cell state should be output as the hidden state.
+                        </li>
+                        <li>
+                            <strong>Prediction:</strong> The hidden state can be used to make predictions
+                            at each time step or after processing the entire sequence.
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="code-example">
+                    <h2>Example: Text Prediction</h2>
+                    <p>
+                        When predicting the next word in a sentence, an LSTM processes each word sequentially:
+                    </p>
+                    <div class="text-prediction-demo">
+                        <div class="sequence-step">
+                            <span class="step-label">Input:</span> "The cat sat on the"
+                        </div>
+                        <div class="sequence-step">
+                            <span class="step-label">LSTM processes:</span> Each word maintains context from previous
+                            words
+                        </div>
+                        <div class="sequence-step">
+                            <span class="step-label">Prediction:</span> "mat" (high probability based on learned
+                            patterns)
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 LSTM Neural Networks Educational Website. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
